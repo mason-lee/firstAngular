@@ -8,33 +8,56 @@
  *
  * Main module of the application.
  */
-angular.module('myApp', ['ngRoute']).
-	config(['$routeProvider', function($routeProvider) {
-			$routeProvider.
-				when('/', { templateUrl: 'views/main.html', activetab: 'home', controller: MainCtrl}).
-				when('/about', { templateUrl: 'views/about.html', activetab: 'about', controller: AboutCtrl}).
-				when('/portfolio', { templateUrl: 'views/portfolio.html', activetab: 'portfolio', controller: PortfolioCtrl}).
-				otherwise({redirectTo: '/'});
-	}]).run(['$rootScope', '$http', '$browser', '$timeout', '$route', function($scope, $http, $browser, $timeout, $route) {
-		$scope.$on("$routeChangeSuccess", function (scope, next, current) {
-				$scope.part = $route.current.activetab;
+
+// Create a module and name it myApp
+	// Also include ngRoute for all our routing needs
+var myApp = angular.module('myApp', ['ngRoute']);
+
+// Configure our routes
+myApp.config(function($routeProvider, $locationProvider) {
+	$routeProvider
+		// route for home page
+		.when('/', {
+			templateUrl: 'views/main.html',
+			controller: 'mainController'
+		})
+
+		// route for about page
+		.when('/about', {
+			templateUrl: 'views/about.html',
+			controller: 'aboutController'
+		})
+
+		//route for project page
+		.when('/project', {
+			templateUrl: 'views/project.html',
+			controller: 'projectController'
+		})
+
+		// route for contact page
+		.when('/contact', {
+			templateUrl: 'views/contact.html',
+			controller: 'contactController'
 		});
-		
-		// OnClick event handlers
-		$scope.showForm = function() {
 
-		};
+	// Use the HTML5 History API
+	if(window.history && window.history.pushState){
+		$locationProvider.html5Mode(true);
+	}
+});
 
-		$scope.closeForm = function() {
+myApp.controller('mainController', function($scope) {
+	$scope.message = 'Hello';
+});
 
-		};
+myApp.controller('aboutController', function($scope) {
+	$scope.message = 'I am at about page.';
+});
 
+myApp.controller('projectController', function($scope) {
+	$scope.message = 'I am at project page.';
+});
 
-	}]);
-
-// app.config(['$locationProvider', function($location) {
-
-// }])
-
-
-
+myApp.controller('contactController', function($scope) {
+	$scope.message = 'I am at contact page';
+});

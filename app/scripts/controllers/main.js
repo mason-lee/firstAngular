@@ -7,6 +7,10 @@
  * # MainCtrl
  * Controller of the myApp
  */
+
+
+
+
 // angular.module('myApp')
 // 	.controller('MainCtrl', function ($scope) {
 // 		$scope.awesomeThings = [
@@ -29,7 +33,3 @@
 // 		];
 // 	});
 
-
-angular.module('myApp').controller('MainCtrl', function($scope) {
-	$scope.message = "Everyone come and see how good I look!";
-});

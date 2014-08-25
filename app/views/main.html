@@ -1,16 +1,4 @@
-<div bz-slider delay="delay" autoplay="true">
-	<div class="bz-slide" ng-repeat="(i, slide) in slides" ng-show="i == $slideIndex" ng-class="slide.class">
-		<img ng-src="{{ slide.image }}" />
-		<h1>This is Main page</h1>
-	</div>
-
-	{{ message }}
-	<!-- <div class="controls">
-		<button ng-click="prev()" class="btn btn-primary">Prev</button>
-		<button ng-click="play()" ng-if="!$play" class="btn btn-primary">Play</button>
-		<button ng-click="stop()" ng-if="$play" class="btn btn-primary">Stop</button>
-		<button ng-click="next()" class="btn btn-primary">next</button>
-	</div> -->
+<div>
+	<h1>Home page</h1>
+	<p>{{ message }}</p>
 </div>
-<!-- <button ng-click="delay = 1000" class="btn btn-default">Set delay 1s</button>
-<button ng-click="delay = 2000" class="btn btn-default">Set delay 2s</button> -->

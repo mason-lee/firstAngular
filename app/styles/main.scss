@@ -66,6 +66,8 @@ html {
 body {
 	font-family: $font-stack;
 	text-rendering: optimizeLegibility;
+	margin: 0;
+	padding: 0;
 }
 
 a {
@@ -84,19 +86,24 @@ a img {
 }
 
 /* Custom page header */
-.header {
+header {
 
 	.nav {
 
 		li {
 			display: inline;
 			float: left;
+			margin-right: 15px;
 
 			a {
 				@include font-size(13);
 				text-transform: uppercase;
 				display: block;
 			}
+		}
+		
+		li:last-child {
+			margin-right: 0;
 		}
 	}
 

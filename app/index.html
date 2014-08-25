@@ -2,6 +2,7 @@
 <html class="no-js" ng-app="myApp" >
 	<head>
 		<meta charset="utf-8">
+		<base href="/">
 		<title></title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width">
@@ -14,40 +15,53 @@
 		<link rel="stylesheet" href="styles/main.css">
 		<!-- endbuild -->
 	</head>
-	<body ng-controller="MainCtrl">
+	<body ng-controller="mainController">
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
-
+		
+		<div class="wrapper">
 		<!-- Add your site or application content here -->
-		<div class="container">
-			<a href="#">
-				<img class="logo" src="images/logo.png" />
-			</a>
+			<div class="container">
+				<a href="#">
+					<img class="logo" src="images/logo.png" />
+				</a>
 
-			<div class="header">
-				<ul class="nav nav-pills pull-right">
-					<li class="active">
-						<a href="#" ng-class="{activeSmall:part == 'home'}">Home</a>
-					</li>
-					<li>
-						<a href="#/about" ng-class="{activeSmall:part == 'about'}">About</a>
-					</li>
-					<li>
-						<a href="#/portfolio" ng-class="{activeSmall:part == 'portfolio'}">Portfolio</a>
-					</li>
-					<li>
-						<a class="active" href="javascript: void(0)" ng-click="showForm()">Contact</a>
-					</li>
-				</ul>
+				<header>
+					<ul class="nav">
+						<li>
+							<a href="#">Home</a>
+						</li>
+						<li>
+							<a href="#about">About</a>
+						</li>
+						<li>
+							<a href="#project">Project</a>
+						</li>
+						<li>
+							<a href="#contact">Contact</a>
+						</li>
+					</ul>
+				</header>
+			</div><!--End container-->
+
+
+			<div id="main">
+				<div class="container">
+					<!-- Angular templating: this is where content will be injected -->
+					<div  ng-view>
+						
+					</div>
+				</div><!--End container-->
 			</div>
-
-			<div ng-view ng-animate="{enter: 'view-enter', leave: 'view-leave'}"></div>
 				
+
 			<div class="footer">
-				
+				<div class="container">
+					
+				</div>
 			</div>
-		</div><!--End container-->
+		</div>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 		 <script>
@@ -70,13 +84,13 @@
 		<!-- build:js(.) scripts/vendor.js -->
 		<!-- bower:js -->
 		<script src="bower_components/angular/angular.js"></script>
-		<script src="bower_components/json3/lib/json3.js"></script>
+		<script src="bower_components/angular-route/angular-route.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
 
 		<!-- build:js({.tmp,app}) scripts/scripts.js -->
 		<script src="scripts/app.js"></script>
-		<script src="scripts/controllers/main.js"></script>
+		<!-- <script src="scripts/controllers/main.js"></script> -->
 		<!-- endbuild -->
 </body>
 </html>
