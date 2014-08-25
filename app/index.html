@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="myApp" >
 	<head>
 		<meta charset="utf-8">
 		<title></title>
@@ -8,15 +8,13 @@
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<!-- build:css(.) styles/vendor.css -->
 		<!-- bower:css -->
-		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-		<link href='http://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
 		<!-- endbower -->
 		<!-- endbuild -->
 		<!-- build:css(.tmp) styles/main.css -->
 		<link rel="stylesheet" href="styles/main.css">
 		<!-- endbuild -->
 	</head>
-	<body ng-app="myApp">
+	<body ng-controller="MainCtrl">
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
@@ -44,8 +42,8 @@
 				</ul>
 			</div>
 
-			<div ng-controller="MainCtrl" ng-view ng-animate="{enter: 'view-enter', leave: 'view-leave'}"></div>
-
+			<div ng-view ng-animate="{enter: 'view-enter', leave: 'view-leave'}"></div>
+				
 			<div class="footer">
 				
 			</div>
@@ -71,12 +69,8 @@
 
 		<!-- build:js(.) scripts/vendor.js -->
 		<!-- bower:js -->
-		<script src="bower_components/jquery/dist/jquery.js"></script>
 		<script src="bower_components/angular/angular.js"></script>
 		<script src="bower_components/json3/lib/json3.js"></script>
-		<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-		<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-		<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
 

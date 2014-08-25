@@ -8,10 +8,10 @@
  *
  * Main module of the application.
  */
-angular.module('myApp', ['ngCookies', 'ngSanitize', 'ngRoute']).
+angular.module('myApp', ['ngRoute']).
 	config(['$routeProvider', function($routeProvider) {
 			$routeProvider.
-				when('/', { templateUrl: 'views/main.html', activetab: 'home', controller: HomeCtrl}).
+				when('/', { templateUrl: 'views/main.html', activetab: 'home', controller: MainCtrl}).
 				when('/about', { templateUrl: 'views/about.html', activetab: 'about', controller: AboutCtrl}).
 				when('/portfolio', { templateUrl: 'views/portfolio.html', activetab: 'portfolio', controller: PortfolioCtrl}).
 				otherwise({redirectTo: '/'});
