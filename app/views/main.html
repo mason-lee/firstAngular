@@ -1,4 +1,7 @@
-<div>
-	<h1>Home page</h1>
-	<p>{{ message }}</p>
+<div bz-slider delay="delay" autoplay="true">
+	<div class="bz-slide" ng-repeat="(i, slide) in slides" ng-show="i == $slideIndex" ng-class="slide.class">
+		<img src="{{ slide.image }}" />
+	</div>
 </div>
+
+

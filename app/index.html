@@ -13,6 +13,7 @@
 		<!-- endbuild -->
 		<!-- build:css(.tmp) styles/main.css -->
 		<link rel="stylesheet" href="styles/main.css">
+		<link rel="stylesheet" href="bower_components/bz-slider/bz-slider.css" data-semver="0.1.0" data-require="bz-slider@0.1.0">
 		<!-- endbuild -->
 	</head>
 	<body ng-controller="mainController">
@@ -23,9 +24,11 @@
 		<div class="wrapper">
 		<!-- Add your site or application content here -->
 			<div class="container">
-				<a href="#">
-					<img class="logo" src="images/logo.png" />
-				</a>
+				<h1 class="logo">
+					<a href="#">
+						JESSIA LEE
+					</a>	
+				</h1>
 
 				<header>
 					<ul class="nav">
@@ -85,11 +88,13 @@
 		<!-- bower:js -->
 		<script src="bower_components/angular/angular.js"></script>
 		<script src="bower_components/angular-route/angular-route.js"></script>
+		<script src="bower_components/bower_components/angular-animate/angular-animate.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
 
 		<!-- build:js({.tmp,app}) scripts/scripts.js -->
 		<script src="scripts/app.js"></script>
+		<script src="bower_components/bz-slider/bz-slider.js" data-semver="0.1.0" data-require="bz-slider@0.1.0"></script>
 		<!-- <script src="scripts/controllers/main.js"></script> -->
 		<!-- endbuild -->
 </body>

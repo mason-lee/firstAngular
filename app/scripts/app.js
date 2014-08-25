@@ -11,7 +11,7 @@
 
 // Create a module and name it myApp
 	// Also include ngRoute for all our routing needs
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'bzSlider']);
 
 // Configure our routes
 myApp.config(function($routeProvider, $locationProvider) {
@@ -47,7 +47,12 @@ myApp.config(function($routeProvider, $locationProvider) {
 });
 
 myApp.controller('mainController', function($scope) {
-	$scope.message = 'Hello';
+	$scope.delay = 2000;
+	$scope.slides = [
+		{'title': 'first', 'class': 'animation-slide', 'image': 'images/hero1.jpg'},
+		{'title': 'second', 'class': 'animation-slide', 'image': 'images/hero2.jpg'},
+		{'title': 'third', 'class': 'animation-slide', 'image': 'images/hero3.jpg'}
+	];
 });
 
 myApp.controller('aboutController', function($scope) {
