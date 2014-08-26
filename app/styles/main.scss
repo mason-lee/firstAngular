@@ -4,12 +4,20 @@
 /*
 	Variables 
 */
-$font-stack: PT Sans Caption, sans-serif;
+$font-ptsans: PT Sans Caption, sans-serif;
+$font-titillium: Titillium Web, sans-serif;
+$font-vesper: Vesper Libre, serif;
 $black: #333333;
 
 /*
 	Mixins
 */
+@mixin small-text() {
+	text-transform: uppercase;
+	font-weight: 600;
+	display: block;
+}
+
 @mixin font-size($sizeValue) {
 	font-size: ($sizeValue/10) + px;
 	font-size: ($sizeValue/10) + rem;
@@ -61,18 +69,28 @@ $black: #333333;
 
 html {
 	font-size: 62.5%;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
 }
 
 body {
-	font-family: $font-stack;
+	font-family: $font-titillium;
 	text-rendering: optimizeLegibility;
 	margin: 0;
 	padding: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
 }
 
 a {
 	text-decoration: none;
 	color: $black;
+}
+
+a:active {
+	// background-color: red;
 }
 
 ul {
@@ -85,32 +103,43 @@ a img {
 	border: none;
 }
 
-.logo {
-	width: 130px;
-	height: 17px;
-	text-indent: -999px;
-	overflow: hidden;
-	background: url("../images/logo.png") no-repeat;
-	z-index: 100;
-	color: #fff;
-	font-weight: normal;
-	text-transform: uppercase;
-	font-size: 14px;
-	letter-spacing: 2px;
-	position: absolute;
-	top: 44px;
-	left: 50%;
-	text-align: center;
-	margin-left: -65px;
+h1 {
+	@include font-size(46);
+}
 
-	a {
+h1.title {
+	font-family: $font-vesper;
+	margin-top: 0;
+}
 
-	}
+h2 {
+	@include font-size(26);
+}
+
+h3 {
+	@include font-size(18);
+}
+
+h4 {
+
+}
+
+p {
+	letter-spacing: 0.1px;
+	font-weight: 400;
+	@include font-size(16);
+}
+
+.wrapper {
+	position: relative;
+	 overflow: auto;
 }
 
 /* Custom page header */
 header {
-
+	height: 65px;
+	padding-top: 15px;
+	border-bottom: 1px solid $black;
 	.nav {
 
 		li {
@@ -119,10 +148,18 @@ header {
 			margin-right: 15px;
 
 			a {
-				@include font-size(13);
-				text-transform: uppercase;
-				display: block;
+				@include font-size(12);
+				@include small-text();
 			}
+	
+			a:hover {
+				color: #c04ce0;
+				background-color: white !important;
+			}
+
+			a.activeSmall {
+				color: #c04ce0;
+			}	
 		}
 		
 		li:last-child {
@@ -130,12 +167,80 @@ header {
 		}
 	}
 
+	
+	h1 {
+		width: 130px;
+		height: 17px;
+		text-indent: -999px;
+		overflow: hidden;
+		background: url("../images/logo.png") no-repeat;
+		z-index: 100;
+		color: #fff;
+		font-weight: normal;
+		text-transform: uppercase;
+		font-size: 14px;
+		letter-spacing: 2px;
+		position: absolute;
+		top: 5px;
+		left: 50%;
+		text-align: center;
+		margin-left: -65px;
+		transition: background 0.2s, opacity 1s;
+
+		a {
+			display: block;
+		}
+	}
+	h1:hover {
+		// background-color: #c04ce0;
+	}
+
+
 }
+
+.main-page {
+	margin-top: 80px;
+}
+
 
 /* Custom page footer */
-.footer {
-
+footer {
+	padding: 30px 0;
+	border-top: 1px solid $black;
+	
+	li {
+		@include font-size(12);
+		@include small-text();
+	}
 }
+
+.list-icon {
+	width: 19px;
+	height: 19px;
+	opacity: 1;
+	top: 14px;
+}
+
+.list-icon span {
+	display: block;
+	height: 0;
+	padding-bottom: 2px;
+	border-top: 2px solid #000;
+	transition: border 0.35s;
+}
+
+.line1 {
+	width: 15px;
+}
+
+.line2 {
+	width: 19px;
+}
+
+.line3 {
+	width: 13px;
+}
+
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
