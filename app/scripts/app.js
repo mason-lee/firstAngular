@@ -63,6 +63,8 @@ myApp.controller('mainController', function($scope) {
 		{'title': 'second', 'class': 'animation-slide', 'image': 'images/hero2.jpg'},
 		{'title': 'third', 'class': 'animation-slide', 'image': 'images/hero3.jpg'}
 	];
+
+	
 });
 
 myApp.controller('aboutController', function($scope) {
