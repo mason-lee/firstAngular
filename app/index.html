@@ -5,14 +5,13 @@
 		<base href="/">
 		<title></title>
 		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<!-- build:css(.) styles/vendor.css -->
 		<!-- bower:css -->
 		<link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+		<link rel="stylesheet" href="bower_components/bz-slider/bz-slider.css" />
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-		<link rel="stylesheet" href="bower_components/angular-snap/angular-snap.css" />
-		<link rel="stylesheet" href="bower_components/bz-slider/bz-slider.css" data-semver="0.1.0" data-require="bz-slider@0.1.0">
 		<!-- endbower -->
 		<!-- endbuild -->
 		<!-- build:css(.tmp) styles/main.css -->
@@ -27,122 +26,127 @@
 		<![endif]-->
 		
 	<div class="wrapper">
-		<div class="landing-wrapper" ng-hide="scrolledDown">
+		<div class="landing-wrapper" scroll ng-class="{min:boolChangeClass}">
 			<header class="landing-header">
 				<div class="container">
-					<div class="pull-left">
-						<ul class="nav">
-							<!-- <li>
-								<a href="#" ng-class="{activeSmall:part == 'home'}">Home</a>
-							</li> -->
-							<li>
-								<a href="#about" ng-class="{activeSmall:part == 'about'}">About</a>
-							</li>
-							<li>
-								<a href="#project" ng-class="{activeSmall:part == 'project'}">Projects</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h1>
-						<a href="#">
-							JESSIA LEE
-						</a>	
-					</h1>
+					<div class="row">
+						<div class="pull-left">
+							<ul class="nav">
+								<!-- <li>
+									<a href="#" ng-class="{activeSmall:part == 'home'}">Home</a>
+								</li> -->
+								<li>
+									<a href="#project" ng-class="{activeSmall:part == 'project'}">Projects</a>
+								</li>
+								<li>
+									<a href="#about" ng-class="{activeSmall:part == 'about'}">About</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h1>
+							<a href="#">
+								JESSIA LEE
+							</a>	
+						</h1>
 
-					<div class="pull-right">
-						<ul class="nav">
-							<li>
-								<a href="#contact" ng-class="{activeSmall:part == 'contact'}">Contact</a>
-							</li>
-							<li class="list-icon">
-								<span class="line1"></span>
-								<span class="line2"></span>
-								<span class="line3"></span>
-							</li>
-						</ul>
+						<div class="pull-right">
+							<ul class="nav">
+								<li>
+									<a href="#contact" ng-class="{activeSmall:part == 'contact'}">Contact</a>
+								</li>
+								<li class="list-icon">
+									<span class="line1"></span>
+									<span class="line2"></span>
+									<span class="line3"></span>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</header>
 		<!-- Add your site or application content here -->
-			<div bz-slider delay="delay" autoplay="true">
-				<div class="bz-slide" ng-repeat="(i, slide) in slides" ng-show="i == $slideIndex" ng-animate="{show: 'animate-show', hide: 'animate-hide'}" ng-class="slide.class">
-					<img src="{{ slide.image }}" />
+			<div class="container-full">
+				<div bz-slider delay="delay" autoplay="true">
+						<div class="bz-slide" ng-repeat="(i, slide) in slides" ng-show="i == $slideIndex" ng-class="slide.class">
+							<img src="{{ slide.image }}" />
+						</div>
 				</div>
 			</div>
-		</div><!--End landing wrapper-->
+		 </div> <!--End landing wrapper-->
 
 			<header class="main-header">
 				<div class="container">
-					<div class="pull-left">
-						<ul class="nav">
-							<!-- <li>
-								<a href="#" ng-class="{activeSmall:part == 'home'}">Home</a>
-							</li> -->
-							<li>
-								<a href="#about" ng-class="{activeSmall:part == 'about'}">About</a>
-							</li>
-							<li>
-								<a href="#project" ng-class="{activeSmall:part == 'project'}">Projects</a>
-							</li>
-						</ul>
-					</div>
-					
-					<h1>
-						<a href="#">
-							JESSIA LEE
-						</a>	
-					</h1>
+					<div class="row">
+						<div class="pull-left">
+							<ul class="nav">
+								<!-- <li>
+									<a href="#" ng-class="{activeSmall:part == 'home'}">Home</a>
+								</li> -->
+								<li>
+									<a href="#project" ng-class="{activeSmall:part == 'project'}">Projects</a>
+								</li>
+								<li>
+									<a href="#about" ng-class="{activeSmall:part == 'about'}">About</a>
+								</li>
+							</ul>
+						</div>
+						
+						<h1>
+							<a href="#">
+								JESSIA LEE
+							</a>	
+						</h1>
 
-					<div class="pull-right">
-						<ul class="nav">
-							<li>
-								<a href="#contact" ng-class="{activeSmall:part == 'contact'}">Contact</a>
-							</li>
-							<li class="list-icon">
-								<span class="line1"></span>
-								<span class="line2"></span>
-								<span class="line3"></span>
-							</li>
-						</ul>
+						<div class="pull-right">
+							<ul class="nav">
+								<li>
+									<a href="#contact" ng-class="{activeSmall:part == 'contact'}">Contact</a>
+								</li>
+								<li class="list-icon">
+									<span class="line1"></span>
+									<span class="line2"></span>
+									<span class="line3"></span>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</header>
 
 			<div id="main">
 				<!-- Angular templating: this is where content will be injected -->
-				<div  ng-view ng-animate="{enter: 'view-enter', leave: 'view-leave'}">
+				<!-- <div  ng-view ng-animate="{enter: 'view-enter', leave: 'view-leave'}"> -->
+				<div  ng-view class="page {{ pageClass }}">
 					
 				</div>
 			</div>
-
+			<div class="push"></div>
+			</div><!--End Wrapper-->
+		
 			<footer>
 				<div class="container">
-					<div class="col-xs-5 pull-left">
-						<ul>
-							<li>
-								<span>E</span>
-								dorelee87@gmail.com
-							</li>
-							<li>
-								<span>P</span>
-								778-898-4759
-							</li>
-							<li>
-								<span>A</span>
-								4333 Central Blvd, Burnaby
-							</li>
-						</ul>
+					<div class="row">
+						<div class="col-xs-5 pull-left">
+							<ul>
+								<li>
+									<span>E</span>
+									dorelee87@gmail.com
+								</li>
+								<li>
+									<span>P</span>
+									778-898-4759
+								</li>
+								<li>
+									<span>A</span>
+									4333 Central Blvd, Burnaby
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</footer>
 
-			<!-- <div snap-drawer="right" style="top: 65px; border-left; 1px solid black;">
-				<div>
-					I should be hidden.
-				</div>
-			</div> -->
-	</div>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 		 <script>
@@ -170,8 +174,7 @@
 		<script src="bower_components/angular-animate/angular-animate.js"></script>
 		<script src="bower_components/angular-route/angular-route.js"></script>
 		<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-		<script src="bower_components/snapjs/snap.js"></script>
-		<script src="bower_components/angular-snap/angular-snap.js"></script>
+		<script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
 
