@@ -11,7 +11,7 @@
 
 // Create a module and name it myApp
 	// Also include ngRoute for all our routing needs
-var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'bzSlider']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'bzSlider', 'duScroll']);
 
 // Configure our routes
 myApp.config(function($routeProvider, $locationProvider) {
@@ -54,7 +54,7 @@ myApp.config(function($routeProvider, $locationProvider) {
 	});
 }]);
 
-myApp.controller('mainController', function($scope) {
+myApp.controller('mainController', function($scope, $document) {
 	$scope.delay = 2000;
 	$scope.slides = [
 		{'title': 'first', 'class': 'animation-fade', 'image': 'images/hero1.jpg'},
@@ -62,7 +62,17 @@ myApp.controller('mainController', function($scope) {
 		{'title': 'third', 'class': 'animation-fade', 'image': 'images/hero3.jpg'}
 	];
 	$scope.pageClass="page-transition";
-	$scope.slideClass="image-fade";
+	
+	// Smooth scrolling
+	$scope.toTheTop = function() {
+		$document.scrollTop(0, 5000);
+	}
+	
+	var section1 = angular.element(document.getElementById('section-1'));
+	
+	$scope.toSection2 = function() {
+		$document.scrollTo(section1, 30, 1000);
+	}
 });
 
 myApp.controller('aboutController', function($scope) {
