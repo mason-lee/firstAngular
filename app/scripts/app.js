@@ -125,25 +125,19 @@ myApp.controller('contactController', function($scope) {
 // });
 // 
 myApp.directive("scroll", function ($window) {
-	return function(scope, element, attrs) {
+      return function(scope, element, attrs) {
       	angular.element($window).bind("scroll", function() {
-	            var screenHeight = angular.element($window).height();
-	            // console.log(screenHeight);
-
-	            if (this.pageYOffset >= screenHeight) {
-	            	if (!scope.boolChangeClass) {
-		            	scope.boolChangeClass = true;
-		            	$(window).scrollTop(0);
-		            }
-	                  // console.log('Scrolled below header.');
-	            } 
-	            else {
-		            // scope.boolChangeClass = false;
-		            // console.log('Header is in view.');
-	            }
-	            scope.$apply();
-	      });
-      };
+			console.log(document.pageYOffset);
+			// if (this.pageYOffset >= 0) {
+	  //           	element.addClass('min');
+	  //                 console.log(this.pageYOffset);
+	  //           } 
+	  //           else {
+	  //           	element.removeClass('min');
+	  //                 console.log('Scrolled up.');
+	  //           }
+      	});
+	};
 });
 
 
